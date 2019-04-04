@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
 @Service
 public class ParkingServiceImpl implements ParkingService {
 
@@ -16,11 +17,14 @@ public class ParkingServiceImpl implements ParkingService {
     private ParkingDao parkingDao;
 
     @Override
-    public ParkingDto getById(Long id){
-
+    public ParkingDto getById(Long id) {
         ParkingEntity byId = parkingDao.getOne(id);
-
         return ParkingMapper.toParkingDTO(byId);
+    }
+
+    public List<ParkingDto> getAll() {
+        List<ParkingEntity> byAll = parkingDao.findAll();
+        return ParkingMapper.toParkingListDTO(byAll);
     }
 
 

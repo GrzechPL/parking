@@ -1,12 +1,13 @@
 package com.capgemini.parkingApp.controllers;
 
 import com.capgemini.parkingApp.dto.ParkingDto;
-import com.capgemini.parkingApp.entity.ParkingEntity;
 import com.capgemini.parkingApp.services.impl.ParkingServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @RestController
 public class ParkingRestController {
@@ -16,7 +17,12 @@ public class ParkingRestController {
 
     @GetMapping(value = "/parking/{id}")
     public ParkingDto getParkingById(@PathVariable("id") Long id) {
-       return  userServiceImpl.getById(id);
+        return userServiceImpl.getById(id);
+    }
+
+    @GetMapping(value = "/booksdata")
+    public List<ParkingDto> getParkingById() {
+        return userServiceImpl.getAll();
     }
 
 }

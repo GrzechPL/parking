@@ -5,4 +5,5 @@ import java.util.List;
 
 public interface Dao<T, K extends Serializable> {
     T getOne(K id);
+    List<T> findAll();
 }

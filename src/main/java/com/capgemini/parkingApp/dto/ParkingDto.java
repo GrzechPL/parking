@@ -9,9 +9,9 @@ public class ParkingDto {
         this.id = id;
         this.parkingPlace = parkingPlace;
     }
-    public ParkingDto() {
 
-    }
+    public ParkingDto() {}
+
     public Long getId() {
         return id;
     }

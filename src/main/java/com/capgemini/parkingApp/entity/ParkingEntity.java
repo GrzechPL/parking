@@ -1,13 +1,10 @@
 package com.capgemini.parkingApp.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name ="Parking")
-//@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+@Table(name = "Parking")
 public class ParkingEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -20,6 +17,10 @@ public class ParkingEntity implements Serializable {
     private int parkingPlace;
 
     public ParkingEntity() {
+    }
+
+    public ParkingEntity(int parkingPlace) {
+        this.parkingPlace = parkingPlace;
     }
 
     public Long getId() {
