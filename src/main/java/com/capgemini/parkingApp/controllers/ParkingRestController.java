@@ -20,7 +20,7 @@ public class ParkingRestController {
         return userServiceImpl.getById(id);
     }
 
-    @GetMapping(value = "/booksdata")
+    @GetMapping(value = "/parkingdata")
     public List<ParkingDto> getParkingById() {
         return userServiceImpl.getAll();
     }
