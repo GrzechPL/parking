@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org"
+      layout:decorate="~{fragments/layout}">
+<head>
+    <title>Parking</title>
+</head>
+<body>
+<div layout:fragment="content" th:remove="tag">
+    <section class="container">
+        <div class="row">
+            <th:block th:each="parking : ${parkingList}">
+                <div class="col-xl-1" style="text-align: center">
+                    <div class="thumbnail">
+                        <div class="caption">
+                            <b><p th:text="${parking.id}"></b></p>
+                            <p th:text="${parking.parkingPlace}"></p>
+                            <p th:text="${parkingData}"></p>
+                            <p th:text="${parkingTime}" ></p>
+                        </div>
+                    </div>
+                </div>
+            </th:block>
+        </div>
+    </section>
+</div>
+</body>
+</html>
