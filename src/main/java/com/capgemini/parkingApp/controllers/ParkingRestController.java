@@ -1,11 +1,12 @@
 package com.capgemini.parkingApp.controllers;
 
 import com.capgemini.parkingApp.dto.ParkingDto;
+import com.capgemini.parkingApp.dto.UserDto;
+import com.capgemini.parkingApp.entity.UserEntity;
 import com.capgemini.parkingApp.services.impl.ParkingServiceImpl;
+import com.capgemini.parkingApp.services.impl.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -13,16 +14,15 @@ import java.util.List;
 public class ParkingRestController {
 
     @Autowired
-    ParkingServiceImpl userServiceImpl;
+    ParkingServiceImpl parkingServiceImpl;
 
-    @GetMapping(value = "/parking/{id}")
-    public ParkingDto getParkingById(@PathVariable("id") Long id) {
-        return userServiceImpl.getById(id);
-    }
+//    @GetMapping(value = "/parking/{id}")
+//    public ParkingDto getParkingById(@PathVariable("id") Long id) {
+//        return parkingServiceImpl.getById(id);
+//    }
 
     @GetMapping(value = "/parkingdata")
-    public List<ParkingDto> getParkingById() {
-        return userServiceImpl.getAll();
+    public List<ParkingDto> getAllParking() {
+        return parkingServiceImpl.getAllParking();
     }
-
 }
