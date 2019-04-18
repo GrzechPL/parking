@@ -5,18 +5,12 @@ import com.capgemini.parkingApp.dto.ParkingDto;
 import com.capgemini.parkingApp.entity.ParkingEntity;
 import com.capgemini.parkingApp.mappers.ParkingMapper;
 import com.capgemini.parkingApp.services.ParkingService;
-import net.bytebuddy.asm.Advice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.Clock;
-import java.time.LocalDate;
-import java.time.LocalTime;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.time.format.FormatStyle;
 import java.util.List;
-
-import static java.time.LocalDate.now;
 
 @Service
 public class ParkingServiceImpl implements ParkingService {
@@ -34,13 +28,15 @@ public class ParkingServiceImpl implements ParkingService {
         List<ParkingEntity> byAll = parkingDao.findAll();
         return ParkingMapper.toParkingListDTO(byAll);
     }
-    public LocalDate getDate(){
-        return LocalDate.now();
-    }
-    public LocalTime getTime(){
+    public String getDateAndTime(){
 
-        LocalTime localTime = LocalTime.now();
+        LocalDateTime now = LocalDateTime.now();
 
-        return localTime;
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d MMM uuuu HH:mm:ss");
+
+        String formatDateTime = now.format(formatter);
+
+        return formatDateTime;
+
     }
 }

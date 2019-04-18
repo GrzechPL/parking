@@ -1,10 +1,7 @@
 package com.capgemini.parkingApp.controllers;
 
 import com.capgemini.parkingApp.dto.ParkingDto;
-import com.capgemini.parkingApp.dto.UserDto;
-import com.capgemini.parkingApp.entity.UserEntity;
 import com.capgemini.parkingApp.services.impl.ParkingServiceImpl;
-import com.capgemini.parkingApp.services.impl.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

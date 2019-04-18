@@ -7,23 +7,25 @@
     <title>Parking</title>
 </head>
 <body>
-<div layout:fragment="content" th:remove="tag">
-    <section class="container">
-        <div class="row">
-            <th:block th:each="parking : ${parkingList}">
-                <div class="col-xl-1" style="text-align: center">
-                    <div class="thumbnail">
-                        <div class="caption">
-                            <b><p th:text="${parking.id}"></b></p>
-                            <p th:text="${parking.parkingPlace}"></p>
+<div layout:fragment="parkingcontent" th:remove="tag">
+     <th:block th:each="parking : ${parkingList}">
+                <div class="parkingclass" style="text-align: center">
+                            <p>Numer :</p>
+                            <p th:text="${parking.id}"></p>
+                            <p>Ilość wolnych miejsc : </p>
+                            <b><p th:text="${parking.parkingPlace}"></p></b>
+                            <p>Data i godzina odczytu : </p>
                             <p th:text="${parkingData}"></p>
-                            <p th:text="${parkingTime}" ></p>
-                        </div>
-                    </div>
+
+                    <form th:action="@{/home}" method="get" class="buttons">
+                        <button class="btn btn-lg btn-primary btn-block" type="Submit">Odświeżanie</button>
+                    </form>
+                    <form th:action="@{/logout}" method="get" class="buttons">
+                        <button class="btn btn-sm btn-primary btn-block" type="Submit">Wyloguj się</button>
+                    </form>
                 </div>
+
             </th:block>
-        </div>
-    </section>
 </div>
 </body>
 </html>

@@ -15,8 +15,7 @@ public class ParkingController {
     @GetMapping(value="/home")
     public String getAllUser(Model model){
         model.addAttribute("parkingList",parkingServiceImpl.getAllParking());
-        model.addAttribute("parkingData",parkingServiceImpl.getDate());
-        model.addAttribute("parkingTime",parkingServiceImpl.getTime());
+        model.addAttribute("parkingData",parkingServiceImpl.getDateAndTime());
         return "parking";
     }
 }
