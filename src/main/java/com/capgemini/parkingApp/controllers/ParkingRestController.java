@@ -13,11 +13,6 @@ public class ParkingRestController {
     @Autowired
     ParkingServiceImpl parkingServiceImpl;
 
-//    @GetMapping(value = "/parking/{id}")
-//    public ParkingDto getParkingById(@PathVariable("id") Long id) {
-//        return parkingServiceImpl.getById(id);
-//    }
-
     @GetMapping(value = "/parkingdata")
     public List<ParkingDto> getAllParking() {
         return parkingServiceImpl.getAllParking();
