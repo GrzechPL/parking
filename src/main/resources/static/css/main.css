@@ -1,0 +1,33 @@
+footer {
+         max-width: 420px;
+         padding: 15px;
+         margin: 0 auto;
+         color:#FFFFFF;
+         background-color: #337AB7;
+         text-align: center;
+         font-weight: bold;
+}
+header {
+       font-size: xx-large;
+        max-width: 420px;
+        padding: 15px;
+        margin: 0 auto;
+        color:#FFFFFF;
+        background-color: #337AB7;
+        text-align: center;
+        font-weight: bold;
+  }
+.parkingclass{
+        text-align: center;
+        border: 3px dotted rgba(0,0,0,0.1);
+        max-width: 420px;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+  }
+
+ .buttons {
+     max-width: 420px;
+     padding: 5px;
+     margin: 0 auto;
+ }
