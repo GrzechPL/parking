@@ -6,5 +6,6 @@ import java.util.List;
 
 public interface ParkingService {
     ParkingDto getById(Long id);
+
     List<ParkingDto> getAllParking();
 }

@@ -5,5 +5,5 @@ import com.capgemini.parkingApp.entity.ParkingEntity;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class ParkingDaoImpl extends AbstractDao<ParkingEntity,Long> implements ParkingDao {
+public class ParkingDaoImpl extends AbstractDao<ParkingEntity, Long> implements ParkingDao {
 }

@@ -31,19 +31,22 @@ public class ParkingServiceImpl implements ParkingService {
         ParkingEntity byId = parkingDao.getOne(id);
         return ParkingMapper.toParkingDTO(byId);
     }
+
     @Override
     public List<ParkingDto> getAllParking() {
         List<ParkingEntity> byAll = parkingDao.findAll();
         return ParkingMapper.toParkingListDTO(byAll);
     }
-    public String getDateAndTime(){
+
+    public String getDateAndTime() {
         LocalDateTime now = LocalDateTime.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d MMM uuuu HH:mm:ss");
         String formatDateTime = now.format(formatter);
         return formatDateTime;
 
     }
-    public String getWelcomeMessage(){
+
+    public String getWelcomeMessage() {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User user = userService.findUserByEmail(auth.getName());
         String userName = "Welcome " + user.getName() + " " + user.getLastName() + " (" + user.getEmail() + ")";
