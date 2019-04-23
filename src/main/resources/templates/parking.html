@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org"
       layout:decorate="~{fragments/layout}">
 <head>
     <title>Parking</title>
@@ -9,7 +8,8 @@
 <body>
 <div layout:fragment="parkingcontent" th:remove="tag">
      <th:block th:each="parking : ${parkingList}">
-                <div class="parkingclass" style="text-align: center">
+       <p th:text="${welcomeMessage}" class="parkingclass"></p>
+                <div class="parkingclass">
                             <p>Numer :</p>
                             <p th:text="${parking.id}"></p>
                             <p>Ilość wolnych miejsc : </p>
