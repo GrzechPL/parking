@@ -10,13 +10,12 @@
      <th:block th:each="parking : ${parkingList}">
        <p th:text="${welcomeMessage}" class="parkingclass"></p>
                 <div class="parkingclass">
-                            <p>Numer :</p>
+                    <p th:text="#{parking.id}"></p>
                             <p th:text="${parking.id}"></p>
-                            <p>Ilość wolnych miejsc : </p>
+                    <p th:text="#{parking.parkingPlace}"></p>
                             <b><p th:text="${parking.parkingPlace}"></p></b>
-                            <p>Data i godzina odczytu : </p>
+                    <p th:text="#{parkingData}"></p>
                             <p th:text="${parkingData}"></p>
-
                     <form th:action="@{/home}" method="get" class="buttons">
                         <button class="btn btn-lg btn-primary btn-block" type="Submit">Odświeżanie</button>
                     </form>
