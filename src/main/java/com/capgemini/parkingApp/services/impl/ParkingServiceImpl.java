@@ -4,6 +4,7 @@ import com.capgemini.parkingApp.dao.ParkingDao;
 import com.capgemini.parkingApp.dto.ParkingDto;
 import com.capgemini.parkingApp.entity.ParkingEntity;
 import com.capgemini.parkingApp.entity.User;
+import com.capgemini.parkingApp.mappers.ParkingMapStruct;
 import com.capgemini.parkingApp.mappers.ParkingMapper;
 import com.capgemini.parkingApp.services.ParkingService;
 import com.capgemini.parkingApp.services.UserService;
@@ -17,7 +18,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @Service
-public class ParkingServiceImpl implements ParkingService {
+public class ParkingServiceImpl implements ParkingService  {
 
     @Autowired
     private ParkingDao parkingDao;
@@ -25,17 +26,19 @@ public class ParkingServiceImpl implements ParkingService {
     @Autowired
     UserService userService;
 
+    @Autowired
+    ParkingMapStruct parkingMapStruct;
 
     @Override
     public ParkingDto getById(Long id) {
         ParkingEntity byId = parkingDao.getOne(id);
-        return ParkingMapper.toParkingDTO(byId);
+        return parkingMapStruct.parkingToParkingDto(byId);
     }
 
     @Override
     public List<ParkingDto> getAllParking() {
         List<ParkingEntity> byAll = parkingDao.findAll();
-        return ParkingMapper.toParkingListDTO(byAll);
+        return parkingMapStruct.parkingToParkingDtoList(byAll);
     }
 
     public String getDateAndTime() {
