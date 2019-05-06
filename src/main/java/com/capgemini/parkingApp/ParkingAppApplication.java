@@ -10,3 +10,16 @@ public class ParkingAppApplication {
         SpringApplication.run(ParkingAppApplication.class, args);
     }
 }
+
+//do deploymentu tylko
+//public class ParkingAppApplication extends SpringBootServletInitializer {
+//
+//    @Override
+//    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+//        return application.sources(ParkingAppApplication.class);
+//    }
+//    public static void main(String[] args) {
+//        SpringApplication.run(ParkingAppApplication.class, args);
+//    }
+//}
+//end

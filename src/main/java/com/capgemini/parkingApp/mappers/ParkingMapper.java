@@ -24,13 +24,4 @@ public class ParkingMapper {
                 .map(ParkingMapper::toParkingDTO)
                 .collect(Collectors.toList());
     }
-
-    public static ParkingEntity toParkingEntity(ParkingDto parkingDto) {
-        if (parkingDto == null)
-            return null;
-        ParkingEntity parkingEntity = new ParkingEntity();
-        parkingEntity.setParkingPlace(parkingDto.getParkingPlace());
-        return parkingEntity;
-    }
-
 }
