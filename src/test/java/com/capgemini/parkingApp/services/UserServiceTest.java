@@ -34,8 +34,8 @@ public class UserServiceTest {
                 mockBCryptPasswordEncoder);
         user = User.builder()
                 .id(1)
-                .name("Gustavo")
-                .lastName("Ponce")
+                .name("Grzegorz")
+                .lastName("Wielki")
                 .email("test@test.com")
                 .build();
         Mockito.when(mockUserRepository.save(any()))
@@ -62,7 +62,7 @@ public class UserServiceTest {
         final String email = "test@test.com";
 
         // Run the test
-        User result = userServiceUnderTest.saveUser(User.builder().build());
+        User result = userServiceUnderTest.saveUser(this.user);
 
         // Verify the results
         assertEquals(email, result.getEmail());

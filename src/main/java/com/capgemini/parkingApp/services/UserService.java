@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.List;
 
 @Service("userService")
 public class UserService {
@@ -25,6 +26,30 @@ public class UserService {
         this.userRepository = userRepository;
         this.roleRepository = roleRepository;
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
+    }
+
+    public List<User> findUserByLastName(String lastname) {
+        return userRepository.findByLastName(lastname);
+    }
+
+    public List<User> QueryDsl() {
+        return userRepository.orderByLastName();
+    }
+
+    public List<User> moreThenThree() {
+        return userRepository.moreThenThree();
+    }
+
+    public User idThree() {
+        return userRepository.idThree();
+    }
+
+    public List<User> withParameter(int par) {
+        return userRepository.withParameter(par);
+    }
+
+    public List<User> lessThenThree() {
+        return userRepository.lessThenThree();
     }
 
     public User findUserByEmail(String email) {
