@@ -9,14 +9,32 @@ import org.hibernate.validator.constraints.Length;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
+import java.time.LocalDateTime;
 import java.util.Set;
+@NamedQueries({
+        @NamedQuery(
+            name="User.moreThenThree",
+            query="FROM User WHERE id > 3"
+                    ),
+        @NamedQuery(
+                name="User.withParameter",
+                query="FROM User WHERE id > :IDNUMBER"
+        )
+})
+@NamedNativeQuery(
+        name="User.lessThenThree",
+        query="SELECT * FROM user where user_id < 3",
+        resultClass = User.class
 
+)
 @Data
 @Builder
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "user")
+@EntityListeners(Listener.class)
+
 public class User {
 
     @Id
@@ -49,4 +67,7 @@ public class User {
     @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles;
 
+    @Column(name = "Pozycja1do100")
+    private int pozycja;
 }
+
